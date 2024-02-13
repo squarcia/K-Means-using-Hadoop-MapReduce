@@ -1,0 +1,14 @@
+it/unipi/hadoop/CustomConfiguration.class
+it/unipi/hadoop/Convergence$ConvergenceReducer.class
+it/unipi/hadoop/Sampling.class
+it/unipi/hadoop/Sampling$SamplingMapper.class
+it/unipi/hadoop/Point.class
+it/unipi/hadoop/Clustering$ClusteringReducer.class
+it/unipi/hadoop/Convergence.class
+it/unipi/hadoop/Sampling$SamplingReducer.class
+it/unipi/hadoop/Clustering.class
+it/unipi/hadoop/Clustering$ClusteringMapper.class
+it/unipi/hadoop/kMeans.class
+it/unipi/hadoop/Convergence$ConvergenceMapper.class
+it/unipi/hadoop/PriorityPoint.class
+it/unipi/hadoop/AccumulatorPoint.class

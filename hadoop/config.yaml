@@ -1,0 +1,12 @@
+Dataset:
+  dimensionsCount: 3
+  clustersCount: 3
+  inputFilePath: input
+  outputFilePath: output
+
+KMeans:
+  randomSeed: 1
+  numberOfReducers: 3
+  convergenceThreshold: 1.0
+  maxIterations: 100
+
