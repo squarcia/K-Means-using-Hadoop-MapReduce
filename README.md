@@ -12,7 +12,7 @@ Follow the steps below to run the program:
     ```
 
 2. **Configure Parameters**
-    Set the necessary parameters in the configuration file `config.ini`.
+    Set the necessary parameters in the configuration file `config.yaml`.
 
 3. **Copy Dataset to Hadoop Distributed File System (HDFS)**
     Transfer your dataset to the specified directory in the Hadoop Distributed File System (HDFS).
