@@ -39,9 +39,9 @@ public class kMeans {
     }
 
     /**
-     * Adds files from a directory to the Hadoop Distributed Cache for a job.
+     * Adds files from a directory to the HDFS Cache for a job.
      * @param dir Directory path.
-     * @param job Hadoop job instance.
+     * @param job instance.
      * @throws IOException
      */
     public static void addCacheDirectory(Path dir, Job job) throws IOException {
@@ -84,7 +84,7 @@ public class kMeans {
         initializeConfiguration();
         displayConfiguration();
 
-        Job sampling = Job.getInstance(conf, "sampling means");
+        Job sampling = Job.getInstance(conf, "sampling");
         if (!Sampling.main(sampling)) {
             fs.close();
             System.exit(1);

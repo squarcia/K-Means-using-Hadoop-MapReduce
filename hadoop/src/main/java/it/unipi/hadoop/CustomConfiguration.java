@@ -101,7 +101,7 @@ public class CustomConfiguration {
     }
 
     /**
-     * Get the number of dimensions.
+     *
      * @return Number of dimensions.
      */
     public int getDimensionsCount() {
@@ -109,7 +109,7 @@ public class CustomConfiguration {
     }
 
     /**
-     * Get the number of clusters.
+     *
      * @return Number of clusters.
      */
     public int getClustersCount() {
@@ -117,7 +117,7 @@ public class CustomConfiguration {
     }
 
     /**
-     * Get the input file path.
+     *
      * @return Input file path.
      */
     public String getInputFilePath() {
@@ -125,7 +125,7 @@ public class CustomConfiguration {
     }
 
     /**
-     * Get the output file path.
+     *
      * @return Output file path.
      */
     public String getOutputFilePath() {
@@ -133,7 +133,7 @@ public class CustomConfiguration {
     }
 
     /**
-     * Get the random seed.
+     *
      * @return Random seed.
      */
     public int getRandomSeed() {
@@ -141,7 +141,7 @@ public class CustomConfiguration {
     }
 
     /**
-     * Get the number of reducers.
+     *
      * @return Number of reducers.
      */
     public int getNumberOfReducers() {
@@ -149,7 +149,7 @@ public class CustomConfiguration {
     }
 
     /**
-     * Get the convergence threshold.
+     *
      * @return Convergence threshold.
      */
     public double getConvergenceThreshold() {
@@ -157,7 +157,7 @@ public class CustomConfiguration {
     }
 
     /**
-     * Get the maximum number of iterations.
+     *
      * @return Maximum number of iterations.
      */
     public int getMaxIterations() {

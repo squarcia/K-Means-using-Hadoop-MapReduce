@@ -84,10 +84,9 @@ public class Convergence {
          * Map function processes each input point and accumulates the distance to the closest mean.
          */
         public void map(LongWritable key, Text value, Context context) {
-            // Create a Point object from the input Text value
             Point p = new Point(value.toString());
 
-            // Find the closest mean using Java 8 stream and compute the distance
+            // Find the closest mean and compute the distance
             double minDistance = means.stream()
                     .mapToDouble(m -> p.computeDistance(m))
                     .min()
@@ -124,7 +123,7 @@ public class Convergence {
          * Reduce function sums up all the distances received from the mappers.
          */
         public void reduce(Text key, Iterable<DoubleWritable> values, Context context) throws IOException, InterruptedException {
-            // Calculate the sum of distances using Java streams
+            // Calculate the sum of distances
             double objFunction = StreamSupport.stream(values.spliterator(), false)
                     .mapToDouble(DoubleWritable::get)
                     .sum();
