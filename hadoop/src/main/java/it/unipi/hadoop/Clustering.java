@@ -20,7 +20,6 @@ import java.util.*;
  * The main class for the clustering job.
  */
 public class Clustering {
-
     /**
      * Mapper class for the clustering job.
      */
