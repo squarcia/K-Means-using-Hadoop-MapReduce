@@ -21,7 +21,7 @@ public class kMeans {
      * @throws IOException
      */
     public static void cleanWorkspace() throws IOException {
-        fs.delete(new Path(conf.get("finalMeans")), true);
+        fs.delete(new Path(conf.get("finalCentroids")), true);
         fs.delete(new Path(conf.get("convergence")), true);
     }
 
@@ -98,8 +98,8 @@ public class kMeans {
         do {
             prevObjFunction = objFunction;
 
-            Path srcPath = (step == 0) ? new Path(conf.get("sampledMeans")) : new Path(conf.get("finalMeans"));
-            Path dstPath = new Path(conf.get("intermediateMeans"));
+            Path srcPath = (step == 0) ? new Path(conf.get("initialCentroids")) : new Path(conf.get("finalCentroids"));
+            Path dstPath = new Path(conf.get("midCentroids"));
 
             fs.mkdirs(dstPath);
             copy(srcPath, dstPath);
@@ -171,9 +171,9 @@ public class kMeans {
         conf.setInt("k", localConfig.getClustersCount());
         conf.setInt("maxNumberOfReduceTasks", localConfig.getNumberOfReducers());
         conf.set("input", localConfig.getInputFilePath());
-        conf.set("sampledMeans", BASE_DIR + "sampled-means");
-        conf.set("intermediateMeans", BASE_DIR + "intermediate-means");
-        conf.set("finalMeans", BASE_DIR + "final-means");
+        conf.set("initialCentroids", BASE_DIR + "initial-centroids");
+        conf.set("midCentroids", BASE_DIR + "mid-centroids");
+        conf.set("finalCentroids", BASE_DIR + "final-centroids");
         conf.set("convergence", BASE_DIR + "convergence");
 
         fs = FileSystem.get(conf);
@@ -190,9 +190,9 @@ public class kMeans {
         System.out.println("Clusters Count (k): " + conf.getInt("k", 2));
         System.out.println("Max Number of Reduce Tasks: " + conf.getInt("maxNumberOfReduceTasks", 1));
         System.out.println("Input File Path: " + conf.get("input"));
-        System.out.println("Sampled Means Output Path: " + conf.get("sampledMeans"));
-        System.out.println("Intermediate Means Output Path: " + conf.get("intermediateMeans"));
-        System.out.println("Final Means Output Path: " + conf.get("finalMeans"));
+        System.out.println("Sampled Means Output Path: " + conf.get("initialCentroids"));
+        System.out.println("Intermediate Means Output Path: " + conf.get("midCentroids"));
+        System.out.println("Final Means Output Path: " + conf.get("finalCentroids"));
         System.out.println("Convergence Output Path: " + conf.get("convergence"));
         System.out.println();
     }
@@ -205,7 +205,7 @@ public class kMeans {
      */
     private static void runClusteringJob() throws IOException, InterruptedException, ClassNotFoundException {
         Job clustering = Job.getInstance(conf, "clustering");
-        addCacheDirectory(new Path(conf.get("intermediateMeans")), clustering);
+        addCacheDirectory(new Path(conf.get("midCentroids")), clustering);
         if (!Clustering.main(clustering)) {
             fs.close();
             System.exit(1);
@@ -220,7 +220,7 @@ public class kMeans {
      */
     private static void runConvergenceJob() throws IOException, InterruptedException, ClassNotFoundException {
         Job convergence = Job.getInstance(conf, "convergence");
-        addCacheDirectory(new Path(conf.get("finalMeans")), convergence);
+        addCacheDirectory(new Path(conf.get("finalCentroids")), convergence);
         if (!Convergence.main(convergence)) {
             fs.close();
             System.exit(1);

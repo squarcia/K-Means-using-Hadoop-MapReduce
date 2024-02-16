@@ -256,7 +256,7 @@ public class Clustering {
 
         // Define input and output paths
         FileInputFormat.addInputPath(job, new Path(conf.get("input")));
-        FileOutputFormat.setOutputPath(job, new Path(conf.get("finalMeans")));
+        FileOutputFormat.setOutputPath(job, new Path(conf.get("finalCentroids")));
 
         // Run the job and return the status
         return job.waitForCompletion(conf.getBoolean("verbose", true));

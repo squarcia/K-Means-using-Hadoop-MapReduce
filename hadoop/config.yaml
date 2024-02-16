@@ -1,6 +1,6 @@
 Dataset:
-  dimensionsCount: 3
-  clustersCount: 3
+  dimensionsCount: 2
+  clustersCount: 4
   inputFilePath: input
   outputFilePath: output
 

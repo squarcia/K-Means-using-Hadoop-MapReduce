@@ -15,10 +15,6 @@ public class AccumulatorPoint extends Point {
         size = 0;
     }
 
-    public int getSize() {
-        return size;
-    }
-
     public void sumPoints(Point that){
         super.sumPoints(that);
         size++;
@@ -32,6 +28,10 @@ public class AccumulatorPoint extends Point {
     public void write(DataOutput out) throws IOException {
         super.write(out);
         out.writeInt(size);
+    }
+
+    public int getSize() {
+        return size;
     }
 
     @Override

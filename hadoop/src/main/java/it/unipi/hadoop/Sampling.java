@@ -188,7 +188,7 @@ public class Sampling {
         job.setOutputValueClass(Point.class);
 
         FileInputFormat.addInputPath(job, new Path(conf.get("input")));
-        FileOutputFormat.setOutputPath(job, new Path(conf.get("sampledMeans")));
+        FileOutputFormat.setOutputPath(job, new Path(conf.get("initialCentroids")));
 
         return job.waitForCompletion(conf.getBoolean("verbose", true));
     }
