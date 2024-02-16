@@ -1,18 +1,23 @@
-# _k_-means hadoop implementation
+# _k_-means Hadoop Implementation 🌐🔢
 
-1. Build the package with maven
+1. 🛠️ **Build the Package with Maven**
 
-```bash
-mvn clean package
-```
+    ```bash
+    mvn clean package
+    ```
 
-2. Set the parameters in the configuration file `config.ini`
+2. 📝 **Configure Parameters in `config.ini`**
 
-3. Copy the dataset to the Hadoop Distributed File System (HDFS) in the directory specified in the configuration file
+    Set the required parameters in the configuration file `config.ini`.
 
-4. Run the jar file **with dependencies** by:
+3. 📂 **Copy Dataset to Hadoop Distributed File System (HDFS)**
 
-```bash
-hadoop jar target/kMeans-1.0-SNAPSHOT-with_dependencies.jar it.unipi.hadoop.kMeans
-```
+    Copy the dataset to the specified directory in the Hadoop Distributed File System (HDFS).
 
+4. 🚀 **Run the Jar File with Dependencies**
+
+    Execute the jar file **with dependencies** using the following command:
+
+    ```bash
+    hadoop jar target/kMeans-1.0-SNAPSHOT-with_dependencies.jar it.unipi.hadoop.kMeans
+    ```
